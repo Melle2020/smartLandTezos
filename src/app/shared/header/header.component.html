@@ -1,0 +1,110 @@
+
+<!-- Navbar STart -->
+<header id="topnav" class="defaultscroll sticky" (window:scroll)="windowScroll()" [class]="navClass"
+  [ngClass]="{'tagline-height': sliderTopbar == true}">
+  <div class="container">
+    <!-- Logo container-->
+    <div>
+      <a class="logo" routerLink="/index" *ngIf="navClass !== 'nav-light'">
+        <img src="assets/images/logo-dark.png" class="l-dark logo-light-mode" height="24" alt="">
+        <img src="assets/images/logo-light.png" class="logo-dark-mode" height="24" alt="">
+      </a>
+
+    
+
+      <ul class="buy-button list-inline mb-0" *ngIf="buttonList == true">
+        <li class="list-inline-item mb-0 ms-1">
+          <div class="dropdown">
+            <button type="button" class="btn btn-link text-decoration-none dropdown-toggle p-0 pe-2"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="uil uil-search text-muted"></i>
+            </button>
+            <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 py-0"
+              style="width: 300px;">
+              <form>
+                <input type="text" id="text" name="name" class="form-control border bg-white" placeholder="Search...">
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-facebook-f icons"></i></a>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-github icons"></i></a>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-twitter icons"></i></a>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-linkedin-alt icons"></i></a>
+        </li>
+      </ul>
+
+
+      <a class="logo" routerLink="/index" *ngIf="navClass === 'nav-light'">
+        <img src="assets/images/logo-dark.png" class="l-dark" height="24" alt="">
+        <img src="assets/images/logo-light.png" class="l-light" height="24" alt="">
+      </a>
+    </div>
+
+    <span *ngIf="!buttonList && !isdeveloper && !shopPages">
+      <div class="buy-button">
+        <ng-template [ngIf]="navClass === 'nav-light'">
+          <a href="javascript: void(0);" class="btn btn-primary login-btn-primary">Ajouter Terrain</a>
+          <a href="javascript: void(0);" class="btn btn-light login-btn-light">Ajouter Terrain</a>
+        </ng-template>
+        <ng-template [ngIf]="navClass !== 'nav-light'">
+          <a href="javascript: void(0);" class="btn btn-primary">Ajouter Terrain</a>
+        </ng-template>
+      </div>
+    </span>
+    <!--end login button-->
+
+    <div class="menu-extras">
+      <div class="menu-item">
+        <!-- Mobile menu toggle-->
+        <a class="navbar-toggle" id="isToggle" (click)="toggleMenu()" [ngClass]="{'open': isCondensed === true}">
+          <div class="lines">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </a>
+        <!-- End mobile menu toggle-->
+      </div>
+    </div>
+
+    <div id="navigation">
+      <!-- Navigation Menu-->
+      <ul class="navigation-menu" [class]="navClass">
+        <li><a routerLink="/" class="nav-link-ref">Accueil</a></li>
+        <li>
+          <a href="javascript:void(0)" (click)="onMenuClick($event)">A propos</a><span class="menu-arrow"></span>
+          
+        </li>
+
+        <li>
+          <a href="javascript:void(0)" (click)="onMenuClick($event)">Equipe</a><span class="menu-arrow"></span>
+         
+        </li>
+        <li>
+          <a href="javascript:void(0)" (click)="onMenuClick($event)">Contact</a><span class="menu-arrow"></span>
+          
+        </li>
+        
+      </ul>
+      <!--end navigation menu-->
+      
+      <div class="buy-menu-btn d-none">
+        <a href="javascript: void(0);" target="_blank" class="btn btn-primary">Buy Now</a>
+      </div>
+      <!--end login button-->
+      <!--end login button-->
+    </div>
+    <!--end navigation-->
+  </div>
+  <!--end container-->
+</header>
+<!--end header-->
+<!-- Navbar End -->

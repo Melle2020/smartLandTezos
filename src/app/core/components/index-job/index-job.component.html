@@ -532,7 +532,7 @@
     </div>
     <div class="modal-body">
         <div class="border-bottom mt-3">
-            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information sur le terrain </h4>
+            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information sur le terrain {{idCni}} </h4>
         </div>
         <div class="row mt-4 mb-2">
             <div class="col-md-6">
@@ -545,19 +545,19 @@
             <!--end col-->
         </div>
 
-        <form>
+        <form #f="ngForm">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Numero CNI <span class="text-danger">*</span></label>
-                        <input class="form-control pl-5 " [(ngModel)]="id_cni" placeholder="Numero de CNI?" type="text">
+                        <input class="form-control pl-5 " [(ngModel)]="idCni" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Numero titre foncier <span class="text-danger">*</span></label>
-                        <input class="form-control pl-5 " [(ngModel)]="id_cni" placeholder="Numero de titre foncier?" type="text">
+                        <input class="form-control pl-5 " placeholder="Numero de titre foncier?" [(ngModel)]="idNumeroT" placeholder="Numero de titre foncier?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -568,14 +568,14 @@
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Noms</label>
-                        <input class="form-control pl-5" id="puissanceFisc" name="puissanceFisc" placeholder="Quelle est le nom du proprietaire?" type="text">
+                        <input class="form-control pl-5" id="nom" name="nom" placeholder="Quelle est le nom du proprietaire?" [(ngModel)]="nom" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Limite</label>
-                        <input class="form-control pl-5" id="puissanceFisc" name="puissanceFisc" placeholder="Limite du terrain" type="text">
+                        <input class="form-control pl-5" id="limite" name="limite" placeholder="Limite du terrain" [(ngModel)]="limite" placeholder="Limite de votre terrain?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -586,14 +586,14 @@
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Prenoms</label>
-                        <input class="form-control pl-5" id="puissanceFisc" name="puissanceFisc" placeholder="Quelle est le prenom du proprietaire?" type="text">
+                        <input class="form-control pl-5" id="prenom" name="prenom" placeholder="Quelle est le prenom du proprietaire?" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Coordonnees geographique du terrain</label>
-                        <input class="form-control pl-5" id="puissanceFisc" name="puissanceFisc" placeholder="Coordonnes geographique  du terrain" type="text">
+                        <input class="form-control pl-5" id="coordGeo" name="coordGeo" placeholder="Coordonnes geographique  du terrain" [(ngModel)]="coordGeo" placeholder="Coordonnees geographique du terrqin?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -604,21 +604,22 @@
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Lieu de naissance</label>
-                        <input class="form-control pl-5" id="puissanceFisc" name="puissanceFisc" placeholder="Quelle est le lieu de naissancen du proprietaire?" type="text">
+                        <input class="form-control pl-5" id="lieuNaissance" name="lieuNaissance" placeholder="Quelle est le lieu de naissancen du proprietaire?" [(ngModel)]="lieuNaissance" placeholder="Lieu de naissance du proprietaire?" [ngModelOptions]="{standalone: true}"
+                            type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Localisation</label>
-                        <input class="form-control pl-5" id="puissanceFisc" name="puissanceFisc" placeholder="Localisation du terrain" type="text">
+                        <input class="form-control pl-5" id="local" name="local" placeholder="Localisation du terrain" [(ngModel)]="local" placeholder="Localisation?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Date de naissance</label>
-                        <input class="form-control pl-5" id="puissanceFisc" name="puissanceFisc" placeholder="Quelle est  la date de naissance du proprietaire?" type="text">
+                        <input class="form-control pl-5" id="dateNaissance" name="dateNaissance" placeholder="Quelle est  la date de naissance du proprietaire?" [(ngModel)]="dateNaissance" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -630,9 +631,9 @@
         </form>
         <!--end form-->
     </div>
-    {{id_cni}}
+    <!-- {{idCni}} -->
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Ajouter</button>
+        <button type="button" class="btn btn-outline-dark" (click)="onAddTerrain();c('Save click')">Ajouter</button>
     </div>
 </ng-template>
 <a href="javascript: void(0);" (click)="open(content)" class="btn btn-icon btn-primary back-to-top" id="back-to-top">

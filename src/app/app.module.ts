@@ -148,6 +148,7 @@ import { PageJobCompanyListComponent } from './core/components/page-job-company-
 import { PageJobCandidateListComponent } from './core/components/page-job-candidate-list/page-job-candidate-list.component';
 import { PageThankyouComponent } from './core/components/page-thankyou/page-thankyou.component';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from  '@angular/common/http'
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto'
@@ -297,7 +298,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CountToModule,
     NgxMasonryModule,
     LightboxModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   exports: [
     FeatherModule,

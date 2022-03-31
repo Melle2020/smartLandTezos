@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SmartcontractService } from 'src/app/smartContract/smartcontract.service';
 
 
 @Component({
@@ -51,19 +52,21 @@ export class IndexJobComponent implements OnInit {
   ];
 
   //Owner Info
-  id_cni:string
+  idCni:string
   nom:string;
   prenom:string;
-  date_naissance:string;
-  lieu_naissance:string;
+  dateNaissance:string;
+  lieuNaissance:string;
 
   //terrain Info
-  id_numeroT:string
+  idNumeroT:string
   local:string;
   limite:string;
-  coord_geo:string;
+  coordGeo:string;
 
-  constructor(private modalService: NgbModal) { }
+  
+
+  constructor(private modalService: NgbModal,private smartContractService:SmartcontractService) { }
 
   /**
    * Testimonial Slider
@@ -96,5 +99,33 @@ export class IndexJobComponent implements OnInit {
   open(content) {
     this.modalService.open(content, { size: 'lg' });
   }
+
+  onAddTerrain(){
+
+    console.log("id proprietaire",this.idCni)
+    this.smartContractService?.addTerrain({coordGeo:this.coordGeo,
+      dateNaissance:this.dateNaissance,
+      idCni:this.idCni,
+      idNumeroT:this.idNumeroT,
+      lieuNaissance:this.lieuNaissance,
+      limite:this.limite,
+      local:this.limite,
+      noms:this.nom,
+      prenoms:this.prenom
+    }).subscribe(
+      (res)=>{
+        console.log('reponse',res)
+
+      },
+      (error)=>{
+        console.log('error',error)
+
+      },
+      ()=>{
+
+      }
+    )
+  }
+  
 
 }

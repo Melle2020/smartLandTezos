@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SmartcontractService } from "src/app/smartContract/smartcontract.service";
 
 @Component({
   selector: "app-header",
@@ -19,8 +20,26 @@ export class HeaderComponent implements OnInit {
   @Input() isdeveloper: boolean;
   @Input() shopPages: boolean;
 
+   //Owner Info
+   idCni:string
+   nom:string;
+   prenom:string;
+   dateNaissance:string;
+   lieuNaissance:string;
+ 
+   idTransaction:any[]
+   allTerrain:any[]
+ 
+   //terrain Info
+   idNumeroT:string
+   local:string;
+   limite:string;
+   coordGeo:string;
+   searchVal:string;
+ 
 
-  constructor(private router: Router, private modalService: NgbModal) {
+
+  constructor(private router: Router, private modalService: NgbModal ,private smartContractService:SmartcontractService) {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         this._activateMenuDropdown();
@@ -172,4 +191,36 @@ export class HeaderComponent implements OnInit {
   wishListModal(content) {
     this.modalService.open(content, { centered: true });
   }
+
+  open(content) {
+    this.modalService.open(content, { size: 'lg' });
+  }
+  onAddTerrain(){
+
+    console.log("id proprietaire",this.idCni)
+    this.smartContractService.addTerrain({coordGeo:this.coordGeo,
+      dateNaissance:this.dateNaissance,
+      idCni:this.idCni,
+      idNumeroT:this.idNumeroT,
+      lieuNaissance:this.lieuNaissance,
+      limite:this.limite,
+      local:this.limite,
+      noms:this.nom,
+      prenoms:this.prenom
+    }).subscribe(
+      (res)=>{
+        console.log('reponse',res)
+
+      },
+      (error)=>{
+        console.log('error',error)
+
+      },
+      ()=>{
+
+      }
+    )
+  }
+
+  
 }

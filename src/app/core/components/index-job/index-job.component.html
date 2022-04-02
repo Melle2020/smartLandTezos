@@ -4,84 +4,51 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="title-heading text-center mt-4 mt-md-5 pt-md-5">
-                    <div class="alert alert-light alert-pills" role="alert">
+                    <!-- <div class="alert alert-light alert-pills" role="alert">
                         <span class="badge rounded-pill bg-success me-1">Start</span>
                         <span class="content"> Fill job <a routerLink="/page-job-apply" class="text-primary">application</a> now
-              !</span>
-                    </div>
+              </span>
+                    </div> -->
 
                     <h1 class="heading mb-3">
-                        <ngx-typed-js [strings]="['Freelancer', 'Developer', 'Designer', 'UX Developer', 'ios Developer']" [shuffle]="true" [typeSpeed]="80" [loop]="true">
-                            Job Vacancies for <span class="element text-primary typing"></span>
+                        <ngx-typed-js [strings]="['Sécurité ', 'Accéssibilité', 'Fiabilité']" [shuffle]="true" [typeSpeed]="80" [loop]="true">
+                            SmartLand <span class="element text-primary typing"></span>
                         </ngx-typed-js>
                     </h1>
-                    <p class="para-desc mx-auto text-muted">Huge community of designers and developers ready for your project.</p>
+                    <p class="para-desc mx-auto text-muted">Sécurisez votre avenir et celui de vos enfants en mettant vos biens en lieu sûr sur SmartLand.</p>
                     <form class="rounded p-4 mt-4 bg-white">
-                        <div class="row text-start">
+                        <div class="row justify-content-center ">
                             <div class="col-lg-5 col-md-4">
                                 <div class="mb-0">
-                                    <input type="text" class="form-control" required placeholder="Keywords">
+                                    <input type="text" class="form-control" [(ngModel)]="searchVal" [ngModelOptions]="{standalone: true}" required placeholder="Numero de titre Foncier">
                                 </div>
                             </div>
                             <!--end col-->
-
-                            <div class="col-lg-7 col-md-8">
-                                <div class="row align-items-center">
-                                    <div class="col-md-4 mt-4 mt-sm-0">
-                                        <div class="mb-0">
-                                            <select class="form-control custom-select">
-                        <option selected="">Location</option>
-                        <option value="AF">Afghanistan</option>
-                        <option value="AX">&Aring;land Islands</option>
-                        <option value="AL">Albania</option>
-                        <option value="DZ">Algeria</option>
-                        <option value="AS">American Samoa</option>
-                        <option value="AD">Andorra</option>
-                        <option value="AO">Angola</option>
-                        <option value="AI">Anguilla</option>
-                        <option value="AQ">Antarctica</option>
-                      </select>
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-
-                                    <div class="col-md-4 mt-4 mt-sm-0">
-                                        <div class="mb-0">
-                                            <select class="form-control custom-select">
-                        <option selected="">Job Types</option>
-                        <option value="4">Accounting</option>
-                        <option value="1">IT & Software</option>
-                        <option value="3">Marketing</option>
-                        <option value="5">Banking</option>
-                      </select>
-                                        </div>
-                                    </div>
-                                    <!--end col-->
-
-                                    <div class="col-md-4 mt-4 mt-sm-0">
-                                        <div class="d-grid">
-                                            <input type="submit" id="search" name="search" class="searchbtn btn btn-primary" value="Search">
-                                        </div>
-                                    </div>
-                                    <!--end col-->
+                            <div class="col-md-3 mt-4 mt-sm-0">
+                                <div class="d-grid">
+                                    <input type="submit" [disabled]="!searchVal" id="search" (click)="getTitreByValue(searchVal)" name="search" class="search btn btn btn-primary" value="Rechercher">
                                 </div>
-                                <!--end row-->
                             </div>
-                            <!---end col-->
+                            <!-- end col -->
+
+
                         </div>
                         <!--end row-->
                     </form>
-                    <p class="text-muted mb-0 mt-4"><span class="text-dark">Keywords :</span> Web Developer, Web Designer, Php Developer, IOS Developer, etc...</p>
+                    <!-- <p class="text-muted mb-0 mt-4"><span class="text-dark">Keywords :</span> Web Developer, Web Designer, Php Developer, IOS Developer, etc...</p> -->
                 </div>
             </div>
             <!--end col-->
 
-            <div class="col-12 mt-4 pt-3">
-                <img src="assets/images/job/home.png" class="img-fluid" alt="">
-            </div>
-            <!--end col-->
+
         </div>
         <!--end row-->
+
+        <div class=" container row" style="background: url('assets/images/land.jpg') center center;">
+            <div>
+                text
+            </div>
+        </div>
     </div>
     <!--end container-->
 </section>
@@ -99,13 +66,13 @@
 <!--Shape End-->
 
 <!-- Start -->
-<section class="section">
+<section class="section" *ngIf="newTransaction.length!=0">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Popular Catagories</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                    <h3 class="title mb-4">Annuaire des propriétes</h3>
+                    <!-- <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p> -->
                 </div>
             </div>
             <!--end col-->
@@ -113,105 +80,67 @@
         <!--end row-->
 
         <div class="row">
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
+            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2" *ngFor="let item of newTransaction">
                 <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/1.jpg" class="img-fluid" alt="">
+                    <!-- <img src="assets/images/land1.jpg" class="img-fluid" alt=""> -->
                     <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">Communications</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
+                        <!-- <ul class="list-unstyled d-flex justify-content-between mb-0"> -->
+                        <!-- <li><a href="javascript:void(0)" class="title h6 text-dark">Numéro:{{item.parameter.value.idNumeroT}}</a></li> -->
+                        <!-- <li class="h6 mb-0 jobs">125 Jobs</li> -->
+                        <!-- </ul> -->
+                        <table style="width:100%">
+                            <tr>
+                                <th>Immatriculation:</th>
+                                <td>{{item.parameter.value.idNumeroT}}</td>
 
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/2.jpg" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">Accounting</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
+                            </tr>
+                            <tr>
+                                <th>Superficie:</th>
+                                <td>{{item.parameter.value.limite}}</td>
 
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/3.jpg" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">Restaurant</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
+                            </tr>
+                            <tr>
+                                <th>Localité:</th>
+                                <td>{{item.parameter.value.local}}</td>
 
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/4.jpg" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">Health</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
+                            </tr>
+                            <tr>
+                                <th>Coordonnées:</th>
+                                <td>{{item.parameter.value.coordGeo}}</td>
 
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/5.jpg" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">Finance</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
+                            </tr>
+                            <tr>
+                                <th>Noms:</th>
+                                <td>{{item.parameter.value.noms}}</td>
 
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/6.jpg" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">Facilities</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
+                            </tr>
+                            <tr>
+                                <th>Prénoms:</th>
+                                <td>{{item.parameter.value.prenoms}}</td>
 
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/7.jpg" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">HR</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!--end col-->
+                            </tr>
+                            <tr>
+                                <th>Numéro CNI:</th>
+                                <td>{{item.parameter.value.idCni}}</td>
 
-            <div class="col-lg-3 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories overflow-hidden rounded shadow border-0">
-                    <img src="assets/images/work/8.jpg" class="img-fluid" alt="">
-                    <div class="card-body">
-                        <ul class="list-unstyled d-flex justify-content-between mb-0">
-                            <li><a href="javascript:void(0)" class="title h6 text-dark">Construction</a></li>
-                            <li class="h6 mb-0 jobs">125 Jobs</li>
-                        </ul>
+                            </tr>
+                            <tr>
+                                <th>Date de naissanse:</th>
+                                <td>{{item.parameter.value.dateNaissance}}</td>
+
+                            </tr>
+                            <tr>
+                                <th>Lieu de naissance:</th>
+                                <td>{{item.parameter.value.lieuNaissance}}</td>
+
+                            </tr>
+
+                        </table>
+                        <div class="ms-auto  d-flex justify-content-center">
+                            <div class="pt-2 text-end">
+                                <a (click)="onCreateLink(item.hash)" class="btn btn-primary">Voir Transaction</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -221,288 +150,34 @@
     </div>
     <!--end container-->
 
-    <!-- Companies Start -->
-    <div class="container mt-100 mt-60">
+
+
+
+</section>
+<!--end section-->
+<!-- End -->
+
+<!-- Start -->
+<section class="section" *ngIf="newTransaction.length===0">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Featured Jobs</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
+                    <h4 class="title mb-4">Cette propriéte n'existe pas encore sur notre annuaire</h4>
+                    <!-- <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p> -->
                 </div>
             </div>
             <!--end col-->
         </div>
         <!--end row-->
 
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Circleci.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Senior Web Developer</h4>
-                            <p class="text-muted mb-0">London, UK</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
 
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Codepen.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Front-End Developer</h4>
-                            <p class="text-muted mb-0">Brasilia, Brazil</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Discord.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Back-End Developer</h4>
-                            <p class="text-muted mb-0">Ottawa, Canada</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Eslint.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">UI Designer</h4>
-                            <p class="text-muted mb-0">Beijing, China</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Gitlab.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">UX Designer</h4>
-                            <p class="text-muted mb-0">Bogota, Colombia</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Mg.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Php Developer</h4>
-                            <p class="text-muted mb-0">Havana, Cuba</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Sketch.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">IOS Developer</h4>
-                            <p class="text-muted mb-0">Nicosia, Cyprus</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Twilio.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Graphics Designer</h4>
-                            <p class="text-muted mb-0">Cairo, Egypt</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Udemy.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Data Entry</h4>
-                            <p class="text-muted mb-0">Suva, Fiji</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Webhooks.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Sketch Designer</h4>
-                            <p class="text-muted mb-0">Helsinki, Finland</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Appdynamics.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Web Developer</h4>
-                            <p class="text-muted mb-0">Berlin, Germany</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <a routerLink="/page-job-detail">
-                    <div class="d-flex key-feature align-items-center p-3 rounded shadow">
-                        <img src="assets/images/job/Gradle.svg" class="avatar avatar-ex-sm" alt="">
-                        <div class="flex-1 ms-3">
-                            <h4 class="title mb-0 text-dark">Game Developer</h4>
-                            <p class="text-muted mb-0">Ahmedabad, India</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!--end col-->
-
-            <div class="col-12 text-center mt-4 pt-2">
-                <a routerLink="/page-jobs" class="btn btn-primary">See All Jobs <i
-            class="uil uil-angle-right-b align-middle"></i></a>
-            </div>
-        </div>
-        <!--end row-->
     </div>
     <!--end container-->
-    <!-- Companies End -->
 
-    <!-- Candidates Start -->
-    <div class="container mt-100 mt-60">
-        <div class="row justify-content-center">
-            <div class="col-12 text-center">
-                <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Expert Candidates</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-        <app-member [memberData]="memberData"></app-member>
-    </div>
-    <!--end container-->
-    <!-- Candidates End -->
 
-    <!-- Testi start -->
-    <div class="container mt-100 mt-60">
-        <div class="row justify-content-center">
-            <div class="col-12 text-center">
-                <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Candidates Review</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p>
-                </div>
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
 
-        <div class="row">
-            <div class="col-12 mt-4 pt-2">
-                <!-- <div id="customer-testi" class="owl-carousel owl-theme"> -->
-                <owl-carousel-o id="customer-testi" [options]="customOptions">
-                    <ng-template carouselSlide>
-                        <div class="card customer-testi border-0 text-center">
-                            <div class="card-body">
-                                <img src="assets/images/client/01.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                <p class="text-muted mt-4">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. "</p>
-                                <h6 class="text-primary">- Thomas Israel</h6>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="card customer-testi border-0 text-center">
-                            <div class="card-body">
-                                <img src="assets/images/client/02.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                <p class="text-muted mt-4">" The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
-                                <h6 class="text-primary">- Carl Oliver</h6>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="card customer-testi border-0 text-center">
-                            <div class="card-body">
-                                <img src="assets/images/client/03.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                <p class="text-muted mt-4">" One disadvantage of Lorum Ipsum is that in Latin certain letters appear more frequently than others. "</p>
-                                <h6 class="text-primary">- Barbara McIntosh</h6>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="card customer-testi border-0 text-center">
-                            <div class="card-body">
-                                <img src="assets/images/client/04.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                <p class="text-muted mt-4">" Thus, Lorem Ipsum has only limited suitability as a visual filler for German texts. "</p>
-                                <h6 class="text-primary">- Jill Webb</h6>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="card customer-testi border-0 text-center">
-                            <div class="card-body">
-                                <img src="assets/images/client/05.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                <p class="text-muted mt-4">" There is now an abundance of readable dummy texts. These are usually used when a text is required. "</p>
-                                <h6 class="text-primary">- Dean Tolle</h6>
-                            </div>
-                        </div>
-                    </ng-template>
-                    <ng-template carouselSlide>
-                        <div class="card customer-testi border-0 text-center">
-                            <div class="card-body">
-                                <img src="assets/images/client/06.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow" alt="">
-                                <p class="text-muted mt-4">" According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero. "</p>
-                                <h6 class="text-primary">- Christa Smith</h6>
-                            </div>
-                        </div>
-                    </ng-template>
-                </owl-carousel-o>
-                <!-- </div> -->
-            </div>
-            <!--end col-->
-        </div>
-        <!--end row-->
-    </div>
-    <!--end container-->
-    <div class="container pt-5">
-        <app-clients-logo></app-clients-logo>
-        <!--end row-->
-    </div>
-    <!--end container-->
-    <!-- Testi end -->
+
 </section>
 <!--end section-->
 <!-- End -->
@@ -532,7 +207,7 @@
     </div>
     <div class="modal-body">
         <div class="border-bottom mt-3">
-            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information sur le terrain {{idCni}} </h4>
+            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information sur le terrain</h4>
         </div>
         <div class="row mt-4 mb-2">
             <div class="col-md-6">
@@ -568,7 +243,7 @@
                 <div class="col-md-6">
                     <div class="form-group position-relative">
                         <label id="label">Noms</label>
-                        <input class="form-control pl-5" id="nom" name="nom" placeholder="Quelle est le nom du proprietaire?" [(ngModel)]="nom" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="text">
+                        <input class="form-control pl-5" id="nom" name="nom" placeholder="Quelle est le nom du proprietaire?" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -585,14 +260,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Prenoms</label>
-                        <input class="form-control pl-5" id="prenom" name="prenom" placeholder="Quelle est le prenom du proprietaire?" type="text">
+                        <label id="label">Prénoms</label>
+                        <input class="form-control pl-5" id="prenom" name="prenom" placeholder="Quelle est le prenom du proprietaire?" [(ngModel)]="prenom" placeholder="Limite de votre terrain?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Coordonnees geographique du terrain</label>
+                        <label id="label">Coordonnées geographique du terrain</label>
                         <input class="form-control pl-5" id="coordGeo" name="coordGeo" placeholder="Coordonnes geographique  du terrain" [(ngModel)]="coordGeo" placeholder="Coordonnees geographique du terrqin?" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>

@@ -12,7 +12,12 @@ export class SmartcontractService {
 
 
   addTerrain(terrain:any):Observable<any>{
-    return this.http.post<any>("http://localhost:3000/addTerrain",JSON.parse(terrain) )
+    console.log('terrain',terrain)
+    return this.http.post<any>("http://localhost:3000/addTerrain",terrain)
+  }
+
+  getAllTerrain():Observable<any>{
+    return this.http.get<any>("https://api.ithacanet.tzkt.io/v1/operations/transactions?target=KT1LmvMf9iki8J4u7rdQDEFYBkAh9onuThAX")
   }
 
 

@@ -23,28 +23,11 @@ import { SharedModule } from "./shared/shared.module";
 
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
-import { AccountMembersComponent } from './core/components/account-members/account-members.component';
-import { AccountMessagesComponent } from './core/components/account-messages/account-messages.component';
 import { MasterPageComponent } from './core/components/master-page/master-page.component';
-import { AccountPaymentsComponent } from './core/components/account-payments/account-payments.component';
-import { AccountProfileComponent } from './core/components/account-profile/account-profile.component';
-import { AccountSettingComponent } from './core/components/account-setting/account-setting.component';
-import { AccountWorksComponent } from './core/components/account-works/account-works.component';
-import { ChangelogComponent } from './core/components/changelog/changelog.component';
-import { ComponentsComponent } from './core/components/components/components.component';
-import { DocumentationComponent } from './core/components/documentation/documentation.component';
 import { EmailAlertComponent } from './email/email-alert/email-alert.component';
 import { EmailConfirmationComponent } from './email/email-confirmation/email-confirmation.component';
 import { EmailInvoiceComponent } from './email/email-invoice/email-invoice.component';
 import { EmailPasswordResetComponent } from './email/email-password-reset/email-password-reset.component';
-import { ForumsComponent } from './core/components/forums/forums.component';
-import { ForumsCommentsComponent } from './core/components/forums-comments/forums-comments.component';
-import { ForumsTopicComponent } from './core/components/forums-topic/forums-topic.component';
-import { HelpcenterFaqsComponent } from './core/components/helpcenter-faqs/helpcenter-faqs.component';
-import { HelpcenterGuidesComponent } from './core/components/helpcenter-guides/helpcenter-guides.component';
-import { HelpcenterOverviewComponent } from './core/components/helpcenter-overview/helpcenter-overview.component';
-import { HelpcenterSupportRequestComponent } from './core/components/helpcenter-support-request/helpcenter-support-request.component';
 import { IndexComponent } from './core/components/index/index.component';
 import { IndexAgencyComponent } from './core/components/index-agency/index-agency.component';
 import { IndexAppsComponent } from './core/components/index-apps/index-apps.component';
@@ -147,8 +130,9 @@ import { IndexLandingFourComponent } from './core/components/index-landing-four/
 import { PageJobCompanyListComponent } from './core/components/page-job-company-list/page-job-company-list.component';
 import { PageJobCandidateListComponent } from './core/components/page-job-candidate-list/page-job-candidate-list.component';
 import { PageThankyouComponent } from './core/components/page-thankyou/page-thankyou.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from  '@angular/common/http'
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto'
@@ -159,27 +143,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AccountMembersComponent,
-    AccountMessagesComponent,
     MasterPageComponent,
-    AccountPaymentsComponent,
-    AccountProfileComponent,
-    AccountSettingComponent,
-    AccountWorksComponent,
-    ChangelogComponent,
-    ComponentsComponent,
-    DocumentationComponent,
     EmailAlertComponent,
     EmailConfirmationComponent,
     EmailInvoiceComponent,
     EmailPasswordResetComponent,
-    ForumsComponent,
-    ForumsCommentsComponent,
-    ForumsTopicComponent,
-    HelpcenterFaqsComponent,
-    HelpcenterGuidesComponent,
-    HelpcenterOverviewComponent,
-    HelpcenterSupportRequestComponent,
     IndexComponent,
     IndexAgencyComponent,
     IndexAppsComponent,
@@ -299,7 +267,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     NgxMasonryModule,
     LightboxModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module.forRoot()
   ],
   exports: [
     FeatherModule,

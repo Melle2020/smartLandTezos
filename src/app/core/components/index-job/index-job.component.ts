@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SmartcontractService } from 'src/app/smartContract/smartcontract.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +21,9 @@ export class IndexJobComponent implements OnInit {
    */
   footerClass: true;
   footerVariant = 'bg-light';
+  transaction : any[]
+  newTransaction:any[]
+  tabfiltre:any[];
 
   /**
   * Member Data
@@ -51,6 +55,8 @@ export class IndexJobComponent implements OnInit {
     }
   ];
 
+  link:string
+
   //Owner Info
   idCni:string
   nom:string;
@@ -58,15 +64,19 @@ export class IndexJobComponent implements OnInit {
   dateNaissance:string;
   lieuNaissance:string;
 
+  idTransaction:any[]
+  allTerrain:any[]
+
   //terrain Info
   idNumeroT:string
   local:string;
   limite:string;
   coordGeo:string;
+  searchVal:string;
 
   
 
-  constructor(private modalService: NgbModal,private smartContractService:SmartcontractService) { }
+  constructor(private modalService: NgbModal,private smartContractService:SmartcontractService, private router:Router) { }
 
   /**
    * Testimonial Slider
@@ -94,6 +104,7 @@ export class IndexJobComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.getAllTerrain()
   }
 
   open(content) {
@@ -103,7 +114,7 @@ export class IndexJobComponent implements OnInit {
   onAddTerrain(){
 
     console.log("id proprietaire",this.idCni)
-    this.smartContractService?.addTerrain({coordGeo:this.coordGeo,
+    this.smartContractService.addTerrain({coordGeo:this.coordGeo,
       dateNaissance:this.dateNaissance,
       idCni:this.idCni,
       idNumeroT:this.idNumeroT,
@@ -126,6 +137,75 @@ export class IndexJobComponent implements OnInit {
       }
     )
   }
+
+  getAllTerrain(){
+    this.smartContractService.getAllTerrain().subscribe(
+      (res)=>{
+        this.newTransaction=[]
+        this.idTransaction=[]
+        this.allTerrain=[]
+
+        
+        this.transaction=res
+        this.transaction
+
+        for(let item of this.transaction){
+          if(item.parameter.entrypoint==="addterrain"&& item.status==="applied"){
+            this.allTerrain.push(item)
+            this.newTransaction.push(item)
+            this.idTransaction.push(item.parameter.value.idNumeroT)
+          }
+
+        }
+        this.transaction===this.newTransaction
+        console.log('response',this.newTransaction)
+        
+      }
+    )
+  }
+
+  // dataValue(data:any){
+  //   if (data.status==="applied" && data.parameter.entrypoint==="addterrain") {
+  //     return true
+  //   }
+  //   return false
+
+  // }
   
+
+  getTitreByValue(data:string){
+    this.tabfiltre=[]
+    console.log('searchVal',data)
+    console.log('idTransaction',this.idTransaction)
+
+    // for(let item of this.idTransaction){
+    //   if(item===data){
+    //     this.tabfiltre.push(item)
+    //   }
+    // }
+    this.newTransaction=this.allTerrain
+
+    for(let item of this.newTransaction){
+
+      if(item.parameter.value.idNumeroT===data){
+
+        this.tabfiltre.push(item)
+      }
+      // if()
+    }
+
+    this.newTransaction=this.tabfiltre
+    console.log("tabfiltre",this.tabfiltre)
+    // this.ngOnInit()
+  }
+
+  onCreateLink(data){
+    this.link=`https://ithacanet.tzkt.io/${data}`
+    window.open(this.link, "_blank");
+
+    
+    
+    
+  }
 
 }

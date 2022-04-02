@@ -1,5 +1,5 @@
 {
-    "name": "smart-land",
+    "name": "landrick-angular",
     "version": "0.0.0",
     "engines": {
         "node": "16.14.2",
@@ -7,7 +7,7 @@
     },
     "scripts": {
         "ng": "ng",
-        "start": "node server.js",
+        "start": "ng serve",
         "heroku-postbuild": "ng build --prod",
         "build": "ng build --configuration production",
         "test": "ng test",

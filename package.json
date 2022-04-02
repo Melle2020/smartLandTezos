@@ -41,6 +41,7 @@
         "bootstrap": "^5.0.1",
         "datatables.net": "^1.11.5",
         "datatables.net-dt": "^1.11.5",
+        "express": "^4.17.3",
         "flatpickr": "^4.6.6",
         "jquery": "^3.6.0",
         "masonry-layout": "^4.2.2",
@@ -57,7 +58,8 @@
         "sweetalert2": "^11.4.8",
         "swiper": "^6.7.0",
         "tslib": "^2.0.0",
-        "zone.js": "~0.11.4"
+        "zone.js": "~0.11.4",
+        "cors": "^2.8.5"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~12.0.2",

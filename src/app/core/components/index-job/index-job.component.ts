@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SmartcontractService } from 'src/app/smartContract/smartcontract.service';
 import { Router } from '@angular/router';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
 
 
 @Component({
@@ -25,36 +26,11 @@ export class IndexJobComponent implements OnInit {
   newTransaction:any[]
   tabfiltre:any[];
 
-  /**
-  * Member Data
-  */
-  memberData = [
-    {
-      profile: "assets/images/client/01.jpg",
-      list: ["facebook", "instagram", "twitter", "linkedin"],
-      name: "Ronny Jofra",
-      designation: "C.E.O"
-    },
-    {
-      profile: "assets/images/client/04.jpg",
-      list: ["facebook", "instagram", "twitter", "linkedin"],
-      name: "Micheal Carlo",
-      designation: "Director"
-    },
-    {
-      profile: "assets/images/client/02.jpg",
-      list: ["facebook", "instagram", "twitter", "linkedin"],
-      name: "Aliana Rosy",
-      designation: "Manager"
-    },
-    {
-      profile: "assets/images/client/03.jpg",
-      list: ["facebook", "instagram", "twitter", "linkedin"],
-      name: "Sofia Razaq",
-      designation: "Developer"
-    }
-  ];
+  
+   @ViewChild('successSwal')
+   public readonly successSwal!: SwalComponent;
 
+ 
   link:string
 
   //Owner Info
@@ -73,6 +49,8 @@ export class IndexJobComponent implements OnInit {
   limite:string;
   coordGeo:string;
   searchVal:string;
+
+  lastIndex:number
 
   
 
@@ -109,9 +87,12 @@ export class IndexJobComponent implements OnInit {
 
   open(content) {
     this.modalService.open(content, { size: 'lg' });
+    // this.successSwal!.fire()
+
   }
 
   onAddTerrain(){
+    this.lastIndex=0
 
     console.log("id proprietaire",this.idCni)
     this.smartContractService.addTerrain({coordGeo:this.coordGeo,
@@ -129,6 +110,10 @@ export class IndexJobComponent implements OnInit {
 
       },
       (error)=>{
+
+        if(error.status===200){
+          this.successSwal!.fire()
+        }
         console.log('error',error)
 
       },
@@ -157,8 +142,11 @@ export class IndexJobComponent implements OnInit {
           }
 
         }
+
+        this.lastIndex=this.newTransaction.length
         this.transaction===this.newTransaction
         console.log('response',this.newTransaction)
+        console.log('lastIndex',this.lastIndex)
         
       }
     )
@@ -195,6 +183,7 @@ export class IndexJobComponent implements OnInit {
     }
 
     this.newTransaction=this.tabfiltre
+
     console.log("tabfiltre",this.tabfiltre)
     // this.ngOnInit()
   }
@@ -203,9 +192,29 @@ export class IndexJobComponent implements OnInit {
     this.link=`https://ithacanet.tzkt.io/${data}`
     window.open(this.link, "_blank");
 
-    
-    
-    
+  }
+
+  OnService(){
+    this.dateNaissance=''
+    this.idCni=''
+    this.idNumeroT=''
+    this.lieuNaissance=''
+    this.limite=''
+    this.limite=''
+    this.nom=''
+    this.prenom=''
+  }
+
+  ongetNewTitre(){
+     this.getAllTerrain()
+    if(this.lastIndex<this.newTransaction.length){
+      this.tabfiltre=this.newTransaction
+      this.newTransaction=[]
+      this.newTransaction.push(this.tabfiltre[this.lastIndex+1])
+
+    }
+
+
   }
 
 }

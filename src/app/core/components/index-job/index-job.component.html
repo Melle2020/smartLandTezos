@@ -66,7 +66,7 @@
 <!--Shape End-->
 
 <!-- Start -->
-<section class="section" *ngIf="newTransaction.length!=0">
+<section class="section" *ngIf="newTransaction?.length!=0">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
@@ -138,7 +138,7 @@
                         </table>
                         <div class="ms-auto  d-flex justify-content-center">
                             <div class="pt-2 text-end">
-                                <a (click)="onCreateLink(item.hash)" class="btn btn-primary">Voir Transaction</a>
+                                <a (click)="onCreateLink(item.hash)" class="btn btn-primary">Voir la transaction</a>
                             </div>
                         </div>
                     </div>
@@ -158,7 +158,7 @@
 <!-- End -->
 
 <!-- Start -->
-<section class="section" *ngIf="newTransaction.length===0">
+<section class="section" *ngIf="newTransaction?.length===0">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
@@ -311,6 +311,9 @@
         <button type="button" class="btn btn-outline-dark" (click)="onAddTerrain();c('Save click')">Ajouter</button>
     </div>
 </ng-template>
+
+<swal #successSwal title="Nouveau titre" text="Ajoutez avec succes!!!" icon="success" (confirm)="OnService()">
+</swal>
 <a href="javascript: void(0);" (click)="open(content)" class="btn btn-icon btn-primary back-to-top" id="back-to-top">
     <i-feather name="plus-circle" class="icons"></i-feather>
 </a>

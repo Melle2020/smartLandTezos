@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewChild } from "@angular/core";
 import { Router, NavigationEnd } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { SwalComponent } from "@sweetalert2/ngx-sweetalert2";
 import { SmartcontractService } from "src/app/smartContract/smartcontract.service";
 
 @Component({
@@ -20,6 +21,8 @@ export class HeaderComponent implements OnInit {
   @Input() isdeveloper: boolean;
   @Input() shopPages: boolean;
 
+  @ViewChild('successSwal')
+  public readonly successSwal!: SwalComponent;
    //Owner Info
    idCni:string
    nom:string;
@@ -213,6 +216,10 @@ export class HeaderComponent implements OnInit {
 
       },
       (error)=>{
+        if(error.status===200){
+          this.successSwal!.fire()
+        }
+        
         console.log('error',error)
 
       },
@@ -220,6 +227,17 @@ export class HeaderComponent implements OnInit {
 
       }
     )
+  }
+
+  OnService(){
+    this.dateNaissance=''
+    this.idCni=''
+    this.idNumeroT=''
+    this.lieuNaissance=''
+    this.limite=''
+    this.limite=''
+    this.nom=''
+    this.prenom=''
   }
 
   

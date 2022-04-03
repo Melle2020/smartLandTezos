@@ -132,6 +132,7 @@ import { PageJobCandidateListComponent } from './core/components/page-job-candid
 import { PageThankyouComponent } from './core/components/page-thankyou/page-thankyou.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { NgxSpinnerModule } from "ngx-spinner";
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -268,7 +269,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     LightboxModule,
     SharedModule,
     HttpClientModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    NgxSpinnerModule
   ],
   exports: [
     FeatherModule,

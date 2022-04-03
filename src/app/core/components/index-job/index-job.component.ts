@@ -4,6 +4,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SmartcontractService } from 'src/app/smartContract/smartcontract.service';
 import { Router } from '@angular/router';
 import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -54,7 +55,7 @@ export class IndexJobComponent implements OnInit {
 
   
 
-  constructor(private modalService: NgbModal,private smartContractService:SmartcontractService, private router:Router) { }
+  constructor(private spinner: NgxSpinnerService,private modalService: NgbModal,private smartContractService:SmartcontractService, private router:Router) { }
 
   /**
    * Testimonial Slider
@@ -82,6 +83,7 @@ export class IndexJobComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.spinner.show();
     this.getAllTerrain()
   }
 
@@ -92,6 +94,8 @@ export class IndexJobComponent implements OnInit {
   }
 
   onAddTerrain(){
+    this.spinner.show()
+      
     this.lastIndex=0
 
     console.log("id proprietaire",this.idCni)
@@ -112,6 +116,8 @@ export class IndexJobComponent implements OnInit {
       (error)=>{
 
         if(error.status===200){
+          this.spinner.hide()
+        
           this.successSwal!.fire()
         }
         console.log('error',error)
@@ -148,6 +154,12 @@ export class IndexJobComponent implements OnInit {
         console.log('response',this.newTransaction)
         console.log('lastIndex',this.lastIndex)
         
+      },
+      (error)=>{
+        
+      },
+      ()=>{
+        this.spinner.hide()
       }
     )
   }
@@ -162,6 +174,7 @@ export class IndexJobComponent implements OnInit {
   
 
   getTitreByValue(data:string){
+    this.spinner.show()
     this.tabfiltre=[]
     console.log('searchVal',data)
     console.log('idTransaction',this.idTransaction)
@@ -186,6 +199,7 @@ export class IndexJobComponent implements OnInit {
 
     console.log("tabfiltre",this.tabfiltre)
     // this.ngOnInit()
+    this.spinner.hide()
   }
 
   onCreateLink(data){

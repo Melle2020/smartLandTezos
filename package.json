@@ -39,6 +39,7 @@
         "angular-feather": "^6.0.10",
         "angularx-flatpickr": "^6.5.1",
         "bootstrap": "^5.0.1",
+        "cors": "^2.8.5",
         "datatables.net": "^1.11.5",
         "datatables.net-dt": "^1.11.5",
         "express": "^4.17.3",
@@ -49,6 +50,7 @@
         "ngx-lightbox": "^2.3.0",
         "ngx-masonry": "^10.0.6",
         "ngx-owl-carousel-o": "^4.0.0",
+        "ngx-spinner": "^13.1.1",
         "ngx-swiper-wrapper": "^10.0.0",
         "ngx-typed-js": "^2.0.2",
         "ngx-youtube-player": "^9.1.0",
@@ -58,8 +60,7 @@
         "sweetalert2": "^11.4.8",
         "swiper": "^6.7.0",
         "tslib": "^2.0.0",
-        "zone.js": "~0.11.4",
-        "cors": "^2.8.5"
+        "zone.js": "~0.11.4"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~12.0.2",

@@ -312,8 +312,10 @@
     </div>
 </ng-template>
 
-<swal #successSwal title="Nouveau titre" text="Ajoutez avec succes!!!" icon="success" (confirm)="OnService()">
+<swal #successSwal title="Nouveau titre" text="Ajouté avec succes!!!" icon="success" (confirm)="OnService()">
 </swal>
+
+<ngx-spinner type="ball-scale-multiple">Patientez svp ...</ngx-spinner>
 <a href="javascript: void(0);" (click)="open(content)" class="btn btn-icon btn-primary back-to-top" id="back-to-top">
     <i-feather name="plus-circle" class="icons"></i-feather>
 </a>

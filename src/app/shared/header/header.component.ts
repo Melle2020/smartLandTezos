@@ -3,6 +3,7 @@ import { Router, NavigationEnd } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { SwalComponent } from "@sweetalert2/ngx-sweetalert2";
 import { SmartcontractService } from "src/app/smartContract/smartcontract.service";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: "app-header",
@@ -42,7 +43,7 @@ export class HeaderComponent implements OnInit {
  
 
 
-  constructor(private router: Router, private modalService: NgbModal ,private smartContractService:SmartcontractService) {
+  constructor(private spinner: NgxSpinnerService,private router: Router, private modalService: NgbModal ,private smartContractService:SmartcontractService) {
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         this._activateMenuDropdown();
@@ -199,12 +200,13 @@ export class HeaderComponent implements OnInit {
     this.modalService.open(content, { size: 'lg' });
   }
   onAddTerrain(){
+    this.spinner.show()
 
     console.log("id proprietaire",this.idCni)
     this.smartContractService.addTerrain({coordGeo:this.coordGeo,
       dateNaissance:this.dateNaissance,
-      idCni:this.idCni,
-      idNumeroT:this.idNumeroT,
+      idCni:this.idCni.toString(),
+      idNumeroT:this.idNumeroT.toString(),
       lieuNaissance:this.lieuNaissance,
       limite:this.limite,
       local:this.limite,
@@ -217,6 +219,7 @@ export class HeaderComponent implements OnInit {
       },
       (error)=>{
         if(error.status===200){
+          this.spinner.hide()
           this.successSwal!.fire()
         }
         

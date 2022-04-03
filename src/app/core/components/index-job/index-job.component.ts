@@ -101,8 +101,8 @@ export class IndexJobComponent implements OnInit {
     console.log("id proprietaire",this.idCni)
     this.smartContractService.addTerrain({coordGeo:this.coordGeo,
       dateNaissance:this.dateNaissance,
-      idCni:this.idCni,
-      idNumeroT:this.idNumeroT,
+      idCni:this.idCni.toString(),
+      idNumeroT:this.idNumeroT.toString,
       lieuNaissance:this.lieuNaissance,
       limite:this.limite,
       local:this.limite,

@@ -13,7 +13,7 @@ export class SmartcontractService {
 
   addTerrain(terrain:any):Observable<any>{
     console.log('terrain',terrain)
-    return this.http.post<any>("http://localhost:3000/addTerrain",terrain)
+    return this.http.post<any>("https://smartland-server.herokuapp.com/addTerrain",terrain)
   }
 
   getAllTerrain():Observable<any>{

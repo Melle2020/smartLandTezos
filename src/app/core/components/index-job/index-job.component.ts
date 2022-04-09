@@ -124,6 +124,7 @@ export class IndexJobComponent implements OnInit {
 
       },
       ()=>{
+        window.location.reload()
 
       }
     )
@@ -151,8 +152,8 @@ export class IndexJobComponent implements OnInit {
 
         this.lastIndex=this.newTransaction.length
         this.transaction===this.newTransaction
-        console.log('response',this.newTransaction)
-        console.log('lastIndex',this.lastIndex)
+        // console.log('response',this.newTransaction)
+        // console.log('lastIndex',this.lastIndex)
         
       },
       (error)=>{
@@ -162,6 +163,22 @@ export class IndexJobComponent implements OnInit {
         this.spinner.hide()
       }
     )
+  }
+
+
+  // change reverse a liste
+  reverseList(data:any[]):any[]{
+    let list:any[]=[]
+    let i=0;
+    for(i=data.length;i--;i>=0){
+      list.push(data[i])
+    }
+    // console.log('list', list)
+
+    return list
+
+
+
   }
 
   // dataValue(data:any){

@@ -170,7 +170,7 @@ export class IndexJobComponent implements OnInit {
   reverseList(data:any[]):any[]{
     let list:any[]=[]
     let i=0;
-    for(i=data.length;i--;i>=0){
+    for(i=data?.length;i--;i>=0){
       list.push(data[i])
     }
     // console.log('list', list)

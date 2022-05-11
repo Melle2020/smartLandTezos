@@ -11,22 +11,22 @@
                     </div> -->
 
                     <h1 class="heading mb-3">
-                        <ngx-typed-js [strings]="['Sécurité ', 'Accéssibilité', 'Fiabilité']" [shuffle]="true" [typeSpeed]="80" [loop]="true">
+                        <ngx-typed-js [strings]="['Sécurité ', 'Accessibility', 'Reliability']" [shuffle]="true" [typeSpeed]="80" [loop]="true">
                             SmartLand <span class="element text-primary typing"></span>
                         </ngx-typed-js>
                     </h1>
-                    <p class="para-desc mx-auto text-muted">Sécurisez votre avenir et celui de vos enfants en mettant vos biens en lieu sûr sur SmartLand.</p>
+                    <p class="para-desc mx-auto text-muted">Secure your future and your children's future by keeping your belongings safe on SmartLand.</p>
                     <form class="rounded p-4 mt-4 bg-white">
                         <div class="row justify-content-center ">
                             <div class="col-lg-5 col-md-4">
                                 <div class="mb-0">
-                                    <input type="text" class="form-control" [(ngModel)]="searchVal" [ngModelOptions]="{standalone: true}" required placeholder="Numero de titre Foncier">
+                                    <input type="text" class="form-control" [(ngModel)]="searchVal" [ngModelOptions]="{standalone: true}" required placeholder="Land title number">
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-md-3 mt-4 mt-sm-0">
                                 <div class="d-grid">
-                                    <input type="submit" [disabled]="!searchVal" id="search" (click)="getTitreByValue(searchVal)" name="search" class="search btn btn btn-primary" value="Rechercher">
+                                    <input type="submit" [disabled]="!searchVal" id="search" (click)="getTitreByValue(searchVal)" name="search" class="search btn btn btn-primary" value="Search">
                                 </div>
                             </div>
                             <!-- end col -->
@@ -46,7 +46,7 @@
 
         <div class=" container row" style="background: url('assets/images/land.jpg') center center;">
             <div>
-                text
+                <!-- text -->
             </div>
         </div>
     </div>
@@ -71,7 +71,7 @@
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
-                    <h3 class="title mb-4">Annuaire des propriétes</h3>
+                    <h3 class="title mb-4">Owner's directory</h3>
                     <!-- <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p> -->
                 </div>
             </div>
@@ -90,47 +90,47 @@
                         <!-- </ul> -->
                         <table style="width:100%">
                             <tr>
-                                <th>Immatriculation:</th>
+                                <th>Immatriculation :</th>
                                 <td>{{item.parameter.value.idNumeroT}}</td>
 
                             </tr>
                             <tr>
-                                <th>Superficie:</th>
+                                <th>Area:</th>
                                 <td>{{item.parameter.value.limite}}</td>
 
                             </tr>
                             <tr>
-                                <th>Localité:</th>
+                                <th>Location:</th>
                                 <td>{{item.parameter.value.local}}</td>
 
                             </tr>
                             <tr>
-                                <th>Coordonnées:</th>
+                                <th>Contact details:</th>
                                 <td>{{item.parameter.value.coordGeo}}</td>
 
                             </tr>
                             <tr>
-                                <th>Noms:</th>
+                                <th>Names:</th>
                                 <td>{{item.parameter.value.noms}}</td>
 
                             </tr>
                             <tr>
-                                <th>Prénoms:</th>
+                                <th>First names:</th>
                                 <td>{{item.parameter.value.prenoms}}</td>
 
                             </tr>
                             <tr>
-                                <th>Numéro CNI:</th>
+                                <th>CNI number:</th>
                                 <td>{{item.parameter.value.idCni}}</td>
 
                             </tr>
                             <tr>
-                                <th>Date de naissanse:</th>
+                                <th>Date of birth:</th>
                                 <td>{{item.parameter.value.dateNaissance}}</td>
 
                             </tr>
                             <tr>
-                                <th>Lieu de naissance:</th>
+                                <th>Place of birth:</th>
                                 <td>{{item.parameter.value.lieuNaissance}}</td>
 
                             </tr>
@@ -138,7 +138,7 @@
                         </table>
                         <div class="ms-auto  d-flex justify-content-center">
                             <div class="pt-2 text-end">
-                                <a (click)="onCreateLink(item.hash)" class="btn btn-primary">Voir la transaction</a>
+                                <a (click)="onCreateLink(item.hash)" class="btn btn-primary">See the transaction</a>
                             </div>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
         <div class="row justify-content-center">
             <div class="col-12 text-center">
                 <div class="section-title mb-4 pb-2">
-                    <h4 class="title mb-4">Cette propriéte n'existe pas encore sur notre annuaire</h4>
+                    <h4 class="title mb-4">This property does not exist yet on our directory</h4>
                     <!-- <p class="text-muted para-desc mx-auto mb-0">Start working with <span class="text-primary fw-bold">Landrick</span> that can provide everything you need to generate awareness, drive traffic, connect.</p> -->
                 </div>
             </div>
@@ -207,15 +207,15 @@
     </div>
     <div class="modal-body">
         <div class="border-bottom mt-3">
-            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information sur le terrain</h4>
+            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information in the field</h4>
         </div>
         <div class="row mt-4 mb-2">
             <div class="col-md-6">
-                <h4 class="title mb-0 card-header text-center bg-primary text-light">Proprietaire </h4>
+                <h4 class="title mb-0 card-header text-center bg-primary text-light">Owner </h4>
             </div>
             <!--end col-->
             <div class="col-md-6">
-                <h4 class="title mb-0 card-header text-center bg-primary text-light">Terrain </h4>
+                <h4 class="title mb-0 card-header text-center bg-primary text-light">Land </h4>
             </div>
             <!--end col-->
         </div>
@@ -224,15 +224,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Numero CNI <span class="text-danger">*</span></label>
-                        <input class="form-control pl-5 " [(ngModel)]="idCni" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="number">
+                        <label id="label">CNI number <span class="text-danger">*</span></label>
+                        <input class="form-control pl-5 " [(ngModel)]="idCni" placeholder="CNI number?" [ngModelOptions]="{standalone: true}" type="number">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Numero titre foncier <span class="text-danger">*</span></label>
-                        <input class="form-control pl-5 " placeholder="Numero de titre foncier?" [(ngModel)]="idNumeroT" placeholder="Numero de titre foncier?" [ngModelOptions]="{standalone: true}" type="number">
+                        <label id="label">Land title number<span class="text-danger">*</span></label>
+                        <input class="form-control pl-5 " placeholder="Land title number?" [(ngModel)]="idNumeroT" [ngModelOptions]="{standalone: true}" type="number">
                     </div>
                 </div>
                 <!--end col-->
@@ -242,33 +242,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Noms</label>
-                        <input class="form-control pl-5" id="nom" name="nom" placeholder="Quelle est le nom du proprietaire?" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Names</label>
+                        <input class="form-control pl-5" id="nom" name="nom" placeholder="What is the name of the owner?" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Limite</label>
-                        <input class="form-control pl-5" id="limite" name="limite" placeholder="Limite du terrain" [(ngModel)]="limite" placeholder="Limite de votre terrain?" [ngModelOptions]="{standalone: true}" type="text">
-                    </div>
-                </div>
-                <!--end col-->
-            </div>
-            <!-- end row  -->
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group position-relative">
-                        <label id="label">Prénoms</label>
-                        <input class="form-control pl-5" id="prenom" name="prenom" placeholder="Quelle est le prenom du proprietaire?" [(ngModel)]="prenom" placeholder="Limite de votre terrain?" [ngModelOptions]="{standalone: true}" type="text">
-                    </div>
-                </div>
-                <!--end col-->
-                <div class="col-md-6">
-                    <div class="form-group position-relative">
-                        <label id="label">Coordonnées geographique du terrain</label>
-                        <input class="form-control pl-5" id="coordGeo" name="coordGeo" placeholder="Coordonnes geographique  du terrain" [(ngModel)]="coordGeo" placeholder="Coordonnees geographique du terrqin?" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Boundary</label>
+                        <input class="form-control pl-5" id="limite" name="limite" placeholder="Boundary of the land" [(ngModel)]="limite" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -278,23 +260,40 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Lieu de naissance</label>
-                        <input class="form-control pl-5" id="lieuNaissance" name="lieuNaissance" placeholder="Quelle est le lieu de naissancen du proprietaire?" [(ngModel)]="lieuNaissance" placeholder="Lieu de naissance du proprietaire?" [ngModelOptions]="{standalone: true}"
-                            type="text">
+                        <label id="label">First names</label>
+                        <input class="form-control pl-5" id="prenom" name="prenom" placeholder="What is the name of the owner?" [(ngModel)]="prenom" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Localisation</label>
-                        <input class="form-control pl-5" id="local" name="local" placeholder="Localisation du terrain" [(ngModel)]="local" placeholder="Localisation?" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Geographical coordinates of the site</label>
+                        <input class="form-control pl-5" id="coordGeo" name="coordGeo" placeholder="Geographical coordinates of the site" [(ngModel)]="coordGeo" [ngModelOptions]="{standalone: true}" type="text">
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!-- end row  -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label id="label">Place of birth</label>
+                        <input class="form-control pl-5" id="lieuNaissance" name="lieuNaissance" placeholder="What is the place of birth of the owner?" [(ngModel)]="lieuNaissance" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Date de naissance</label>
-                        <input class="form-control pl-5" id="dateNaissance" name="dateNaissance" placeholder="Quelle est  la date de naissance du proprietaire?" [(ngModel)]="dateNaissance" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Location</label>
+                        <input class="form-control pl-5" id="local" name="local" placeholder="Location of the land" [(ngModel)]="local" [ngModelOptions]="{standalone: true}" type="text">
+                    </div>
+                </div>
+                <!--end col-->
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label id="label">Date of birth</label>
+                        <input class="form-control pl-5" id="dateNaissance" name="dateNaissance" placeholder="What is the date of birth of the owner?" [(ngModel)]="dateNaissance" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -308,14 +307,14 @@
     </div>
     <!-- {{idCni}} -->
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="onAddTerrain();c('Save click')">Ajouter</button>
+        <button type="button" class="btn btn-outline-dark" (click)="onAddTerrain();c('Save click')">Add</button>
     </div>
 </ng-template>
 
-<swal #successSwal title="Nouveau titre" text="Ajouté avec succes!!!" icon="success" (confirm)="OnService()">
+<swal #successSwal title="New title" text="Successfully added!!!" icon="success" (confirm)="OnService()">
 </swal>
 
-<ngx-spinner type="ball-scale-multiple">Patientez svp ...</ngx-spinner>
+<ngx-spinner type="ball-scale-multiple">Please wait ...</ngx-spinner>
 <a href="javascript: void(0);" (click)="open(content)" class="btn btn-icon btn-primary back-to-top" id="back-to-top">
     <i-feather name="plus-circle" class="icons"></i-feather>
 </a>

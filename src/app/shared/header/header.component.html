@@ -47,11 +47,11 @@
         <span *ngIf="!buttonList && !isdeveloper && !shopPages">
       <div class="buy-button">
         <ng-template [ngIf]="navClass === 'nav-light'">
-          <a (click)="open(content)" class="btn btn-primary login-btn-primary">Ajouter Terrain</a>
-          <a (click)="open(content)" class="btn btn-light login-btn-light">Ajouter Terrain</a>
+          <a (click)="open(content)" class="btn btn-primary login-btn-primary">Add Land</a>
+          <a (click)="open(content)" class="btn btn-light login-btn-light">Add Land</a>
         </ng-template>
         <ng-template [ngIf]="navClass !== 'nav-light'">
-          <a (click)="open(content)" class="btn btn-primary">Ajouter Terrain</a>
+          <a (click)="open(content)" class="btn btn-primary">Add Land</a>
         </ng-template>
       </div>
     </span>
@@ -74,14 +74,14 @@
         <div id="navigation">
             <!-- Navigation Menu-->
             <ul class="navigation-menu" [class]="navClass">
-                <li><a routerLink="/" class="nav-link-ref">Accueil</a></li>
+                <li><a routerLink="/" class="nav-link-ref">Home</a></li>
                 <li>
                     <a href="javascript:void(0)" (click)="onMenuClick($event)">A propos</a><span class="menu-arrow"></span>
 
                 </li>
 
                 <li>
-                    <a href="javascript:void(0)" (click)="onMenuClick($event)">Equipe</a><span class="menu-arrow"></span>
+                    <a href="javascript:void(0)" (click)="onMenuClick($event)">Team</a><span class="menu-arrow"></span>
 
                 </li>
                 <li>
@@ -109,20 +109,20 @@
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title"></h4>
         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-    <span aria-hidden="true">&times;</span>
-  </button>
+      <span aria-hidden="true">&times;</span>
+    </button>
     </div>
     <div class="modal-body">
         <div class="border-bottom mt-3">
-            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information sur le terrain</h4>
+            <h4 class="title mb-0 card-header text-center bg-primary text-light"> Information in the field</h4>
         </div>
         <div class="row mt-4 mb-2">
             <div class="col-md-6">
-                <h4 class="title mb-0 card-header text-center bg-primary text-light">Proprietaire </h4>
+                <h4 class="title mb-0 card-header text-center bg-primary text-light">Owner </h4>
             </div>
             <!--end col-->
             <div class="col-md-6">
-                <h4 class="title mb-0 card-header text-center bg-primary text-light">Terrain </h4>
+                <h4 class="title mb-0 card-header text-center bg-primary text-light">Land </h4>
             </div>
             <!--end col-->
         </div>
@@ -131,15 +131,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Numero CNI <span class="text-danger">*</span></label>
-                        <input class="form-control pl-5 " [(ngModel)]="idCni" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="number">
+                        <label id="label">CNI number <span class="text-danger">*</span></label>
+                        <input class="form-control pl-5 " [(ngModel)]="idCni" placeholder="CNI number?" [ngModelOptions]="{standalone: true}" type="number">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Numero titre foncier <span class="text-danger">*</span></label>
-                        <input class="form-control pl-5 " placeholder="Numero de titre foncier?" [(ngModel)]="idNumeroT" placeholder="Numero de titre foncier?" [ngModelOptions]="{standalone: true}" type="number">
+                        <label id="label">Land title number<span class="text-danger">*</span></label>
+                        <input class="form-control pl-5 " placeholder="Land title number?" [(ngModel)]="idNumeroT" [ngModelOptions]="{standalone: true}" type="number">
                     </div>
                 </div>
                 <!--end col-->
@@ -149,33 +149,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Noms</label>
-                        <input class="form-control pl-5" id="nom" name="nom" placeholder="Quelle est le nom du proprietaire?" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Names</label>
+                        <input class="form-control pl-5" id="nom" name="nom" placeholder="What is the name of the owner?" [(ngModel)]="nom" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Limite</label>
-                        <input class="form-control pl-5" id="limite" name="limite" placeholder="Limite du terrain" [(ngModel)]="limite" placeholder="Limite de votre terrain?" [ngModelOptions]="{standalone: true}" type="text">
-                    </div>
-                </div>
-                <!--end col-->
-            </div>
-            <!-- end row  -->
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group position-relative">
-                        <label id="label">Prenoms</label>
-                        <input class="form-control pl-5" id="prenom" name="prenom" placeholder="Quelle est le prenom du proprietaire?" [(ngModel)]="prenom" placeholder="Limite de votre terrain?" [ngModelOptions]="{standalone: true}" type="text">
-                    </div>
-                </div>
-                <!--end col-->
-                <div class="col-md-6">
-                    <div class="form-group position-relative">
-                        <label id="label">Coordonnees geographique du terrain</label>
-                        <input class="form-control pl-5" id="coordGeo" name="coordGeo" placeholder="Coordonnes geographique  du terrain" [(ngModel)]="coordGeo" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Boundary</label>
+                        <input class="form-control pl-5" id="limite" name="limite" placeholder="Boundary of the land" [(ngModel)]="limite" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -185,22 +167,40 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Lieu de naissance</label>
-                        <input class="form-control pl-5" id="lieuNaissance" name="lieuNaissance" [(ngModel)]="lieuNaissance" placeholder="Lieu de naissance du proprietaire?" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">First names</label>
+                        <input class="form-control pl-5" id="prenom" name="prenom" placeholder="What is the name of the owner?" [(ngModel)]="prenom" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Localisation</label>
-                        <input class="form-control pl-5" id="local" name="local" placeholder="Localisation du terrain" [(ngModel)]="local" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Geographical coordinates of the site</label>
+                        <input class="form-control pl-5" id="coordGeo" name="coordGeo" placeholder="Geographical coordinates of the site" [(ngModel)]="coordGeo" [ngModelOptions]="{standalone: true}" type="text">
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!-- end row  -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label id="label">Place of birth</label>
+                        <input class="form-control pl-5" id="lieuNaissance" name="lieuNaissance" placeholder="What is the place of birth of the owner?" [(ngModel)]="lieuNaissance" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
                 <div class="col-md-6">
                     <div class="form-group position-relative">
-                        <label id="label">Date de naissance</label>
-                        <input class="form-control pl-5" id="dateNaissance" name="dateNaissance" placeholder="Quelle est  la date de naissance du proprietaire?" [(ngModel)]="dateNaissance" placeholder="Numero de CNI?" [ngModelOptions]="{standalone: true}" type="text">
+                        <label id="label">Location</label>
+                        <input class="form-control pl-5" id="local" name="local" placeholder="Location of the land" [(ngModel)]="local" [ngModelOptions]="{standalone: true}" type="text">
+                    </div>
+                </div>
+                <!--end col-->
+                <div class="col-md-6">
+                    <div class="form-group position-relative">
+                        <label id="label">Date of birth</label>
+                        <input class="form-control pl-5" id="dateNaissance" name="dateNaissance" placeholder="What is the date of birth of the owner?" [(ngModel)]="dateNaissance" [ngModelOptions]="{standalone: true}" type="text">
                     </div>
                 </div>
                 <!--end col-->
@@ -214,8 +214,9 @@
     </div>
     <!-- {{idCni}} -->
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="onAddTerrain();c('Save click')">Ajouter</button>
+        <button type="button" class="btn btn-outline-dark" (click)="onAddTerrain();c('Save click')">Add</button>
     </div>
 </ng-template>
-<swal #successSwal title="Nouveau titre" text="Ajoutez avec succes!!!" icon="success" (confirm)="OnService()">
+
+<swal #successSwal title="New title" text="Successfully added!!!" icon="success" (confirm)="OnService()">
 </swal>

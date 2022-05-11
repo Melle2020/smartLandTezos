@@ -99,6 +99,16 @@ export class IndexJobComponent implements OnInit {
     this.lastIndex=0
 
     console.log("id proprietaire",this.idCni)
+    console.log("proprietaire",{coordGeo:this.coordGeo,
+      dateNaissance:this.dateNaissance,
+      idCni:this.idCni.toString(),
+      idNumeroT:this.idNumeroT.toString,
+      lieuNaissance:this.lieuNaissance,
+      limite:this.limite,
+      local:this.limite,
+      noms:this.nom,
+      prenoms:this.prenom
+    })
     this.smartContractService.addTerrain({coordGeo:this.coordGeo,
       dateNaissance:this.dateNaissance,
       idCni:this.idCni.toString(),
